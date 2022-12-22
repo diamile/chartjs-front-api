@@ -11,7 +11,6 @@
     :width="width"
     :height="height"
   />
-
   </div>
 </template>
 
@@ -85,18 +84,28 @@ export default {
   computed:{
     getLicences(){
       return this.$store.getters['licence/getLicences'];
+    },
+    getLanguages(){
+      return this.$store.getters['licence/getLicences'];
     }
     
   },
   beforeMount(){
     this.$store.dispatch('licence/fetchLicences')
+    this.$store.dispatch('licence/fetchLanguage')
    
     
   },
  created(){
-    console.log(this.getLicences.map(t=>t.licence))
-    this.chartData.labels = this.getLicences.map(t=>t.licence)
-    this.chartData.datasets[0].data = this.getLicences.map(t=>t.total)
+    
+    if(this.$route.name=="language"){
+      this.chartData.labels = this.getLanguages.map(t=>t.LANGUAGE)
+      this.chartData.datasets[0].data = this.getLanguages.map(t=>t.total_bytes)
+    }else if(this.$route.name=="piechart"){
+      this.chartData.labels = this.getLicences.map(t=>t.licence)
+      this.chartData.datasets[0].data = this.getLicences.map(t=>t.total)
+    }
+    
   }
 
 }

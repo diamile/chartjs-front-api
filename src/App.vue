@@ -6,6 +6,7 @@
       <option selected>Selectionner un graphe</option>
       <option value="piechart">piechart</option>
       <option value="radarchart">radarchart</option>
+      <option value="language">language</option>
     </select>
     </div><br>
 
@@ -20,7 +21,7 @@ export default {
   name: 'App',
   data(){
     return{
-      graphe:""
+      graphe:"Selectionner un graphe"
     }
   },
   methods:{

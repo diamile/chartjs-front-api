@@ -24,6 +24,12 @@ routes:[
         props:true,
     },
     {
+        path:'/language',
+        name:'language',
+        component:Piechart,
+        props:true,
+    },
+    {
         path:'/radarchart',
         name:'radarchart',
         component:Radarchart,
